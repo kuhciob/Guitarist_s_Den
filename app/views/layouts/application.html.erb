@@ -8,6 +8,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     
     <link id="stylelink" rel="stylesheet" href="/nighttheme.css">
@@ -94,10 +95,10 @@
                 
                 <div id="contacts" class="float_panel">
                     <p>Contacts</p>
-                    <img id="sun2" src="/images/LOGOonlySunlights.png"  style="width:15em; height:15em;" title="13?" style="cursor: help;" onclick="SunClick()">
-                    <img id="sun" src="/images/LOGOonlySUN.png" style="width:15em; height:15em;" title="13?" style="cursor: help;">
+                    <img id="sun2" src="/images/LOGOonlySunlights.png"  style="width:15em; height:15em;" title="click!" style="cursor: help;" onclick="SunClick()">
+                    <img id="sun" src="/images/LOGOonlySUN.png" style="width:15em; height:15em;" title="click!" style="cursor: help;">
                     <script>
-
+                    //style="width:15em; height:15em;"
                     let anim=20;
                     function SunClick(){
                         if(anim>1){
@@ -111,7 +112,7 @@
                             }else anim=20;
                         }
                         const sunlight=document.getElementById('sun2');
-                        sunlight.style="animation:spin " + anim + "s linear infinite;";
+                        sunlight.style="animation:spin " + anim + "s linear infinite;width:15em; height:15em;";
                     }
                     </script>
                     <div>
