@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>den</title>
+        <link id="stylelink" rel="stylesheet" href="styles.css">
+        <link rel="icon" href="images/LOGO.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <div id="background">   </div>
+        
+        <div class="top_bar">
+            <div id="intro" class="intro">
+                <header style="text-align: center;">
+                    <h1 id="main_head" >Guitarist's den</h1>
+                </header>
+            </div>
+            <div id="navigation" class="navigation"  >
+                <nav>
+
+                    <div class="nav" style=" padding-left: 30%; padding-right: 20%; padding-top: 0px; padding-bottom: 0px;">
+                        <div class="navitem" >
+                            <a  href='#chords' style="color: rgb(214, 214, 214);">Chords</a>
+                        </div>
+                        <div class="navitem" >
+                            <a  href='#tabs' style="color: rgb(214, 214, 214);">Tabs</a>
+                        </div>
+                        <div class="navitem" >
+                            <a  href='#tabs' style="color: rgb(214, 214, 214);">Wallpaper</a>
+                        </div>
+                        <div class="navitem" >
+                            <a  href='#tabs' style="color: rgb(214, 214, 214);">Education</a>
+                        </div>
+                        <div class="navitem" >
+                            <a  href='#Feedback' style="color: rgb(214, 214, 214);">Feedback</a>
+                        </div>
+                    </div>
+                <div class="nav" style="padding-right: 2%;">
+                    <form >
+                        <input list="Search" placeholder="search">
+                        <datalist id="Search">
+                            <option value="Video guides">
+                            <option value="For beginner">
+                            <option value="For pro">
+                            <option value="AC/DC">
+                        </datalist>
+                    </form>
+
+                </div>
+                    <div id="theme_changer" class="nav">
+                        
+                        Light theme
+                        <div class="q-container">
+                            <div class="main2">
+                            <input type="checkbox" id="hidcheck" hidden>
+                            <label class="capsule" for="hidcheck" id="capsule-id">
+                                <div class="circle"> </div>
+                                <div class="text-signs">
+                                <span id="on"></span>
+                                </div>
+                            </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </nav>
+
+                
+            </div>
+        </div>
+        
+
+        <div id="base" class="base" >
+            <div class="left_side">
+                <div id="log_in" class="float_panel">
+                    <p>Log-in</p>
+                    <br>
+                    <form id="SignInForm"  onsubmit="validateLoginForm(event)" method="GET">
+                        <input type="text" id="username" placeholder="Username" name="username" onkeypress='validateLogin(event,"SignInForm",name)'>
+                        <br>
+                        <br>
+                        <input type="text" id="password" name="password" placeholder="Password" onkeypress='validatePassword(event,"SignInForm",name)'>
+                        <br>
+                        <br>
+                        <input id="sbutton" type="submit" class="reg_buttons" style="font-size:1em; align-self:center;" value="sign in" >
+
+                    </form>
+
+                    <p ><a id="regiatration" style="font-size: 0.7em; cursor: pointer;"  >Registration</a></p>
+                </div>
+                <br>
+                <br>
+
+
+
+                <div id="contacts" class="float_panel">
+                    <p>Contacts</p>
+                    <img id="sun2" src="images/LOGOonlySunlights.png" width="200" height="200" title="13?" style="cursor: help;">
+                    <img id="sun" src="images/LOGOonlySUN.png" width="200" height="200" title="13?" style="cursor: help;">
+                    
+                    <div>
+                        Boichuk Ivan
+                    </div>
+                    <div>
+                        
+                            <img class="inst" src="inst2.png" width="20" height="20" alt="inst">
+                        
+                        <a id="clickit" class="inst" href="https://www.instagram.com/lvasuk/" target="_blank"  style="color: rgb(214, 214, 214);">@lvasuk</a>
+                    </div>
+                </div>
+                <br>
+                
+               
+            </div>
+                                     
+            <div id="main" class="main">    
+
+
+<table id="chordstable" class="songtable">
+<tr class="songitem">
+<th>
+<img class="songimg" src="images/songsbands/knebel.jpg" style="height: 100px; width: 100px;">
+</th>
+<th style="width: max-content;"></th>
+</table>
+
+
+
+
+                <div id="Feedback" class="Feedback">
+                    <div id="footer">
+                        <footer>IVASUK | 2020</footer>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="right_side">
+                <div id="quiz" class="float_button">
+                    <button id="quiz_button" >Click to know<br> who is !vasuk`s crush</button>
+                </div>  
+            </div>
+
+            
+        </div>
+
+
+        
+        <audio id="listen" src="secret_song.mp3">
+            ERROR
+        </audio>
+        
+        <script src="engine.js" ></script>
+        <script>
+            const ListSimple = document.getElementById('list1_Simple');
+            const ListAbar = document.getElementById('list1_Abar');
+            const ListEbar = document.getElementById('list1_Ebar');
+            //const feedtext = document.getElementById('feedtxt')
+
+            ListSimple.addEventListener('click',()=>PasteImg('list1_Simple','images/chords/SimpleChords.jpg'));
+            ListAbar.addEventListener('click',()=>PasteImg('list1_Abar','images/chords/Abarchords.png'));
+            ListEbar.addEventListener('click',()=>PasteImg('list1_Ebar','images/chords/Ebarchords.png'));
+
+            function EnableButt(){
+                let bttn=document.getElementById('Feddbackbutton');
+                let textt=document.getElementById('feedtxt');
+                textt=textt.value;
+                //console.log(data)
+                if (textt==null || textt=="")
+                {
+
+                    bttn.disabled=true;
+                }else{
+                    bttn.disabled=false;
+                }
+            }
+            
+        </script>
+
+
+    </body>
+    
+</html>

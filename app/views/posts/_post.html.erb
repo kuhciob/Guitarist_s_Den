@@ -1,0 +1,25 @@
+
+    
+    <div class="songtable">
+        <table class="d-flex" >
+            <tr style="width: 100%;display:block" >
+            <th><%= image_tag post.image.url(:thumb), class: "img-show",style:'border-radius:100%' if post.image? %></th>
+            <th style="width: 100%;"><h2 style="vertical-align: middle;margin-left: 10%;width: max-content;">
+                <%= link_to post.title, post_path(post)%></h2>
+                <small style="vertical-align: middle;margin-left: 10%;width: max-content;">
+                   <%= post.author%> | <time><%= post.created_at.to_date.strftime("%d, %B, %Y")%></time>
+                    <% if current_user%>
+                        <%if current_user.admin == true %>
+                        <br>
+                        <div class="d-flex flex-row-reverse">
+                            <button class="btn btn-danger "><%= link_to 'Delete', post_path(post), method: :delete , data:{confirm: 'are you Shure?'}%></button>
+                        </div>
+                        <%end%>
+                   <%end%>
+                </small>
+            </th>
+        </table>
+        
+        
+       
+    </div>

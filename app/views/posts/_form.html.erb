@@ -1,0 +1,55 @@
+
+<% if @post.errors.any?%>
+    <div class="alert alert-danger">
+        <h5><%= t('common.errors') %></h5>
+        <ul>
+            <% @post.errors.full_messages.each do |message|%>
+            <li> <%=message%> </li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+<div class="post_form"> 
+
+    <%= form_for @post, html: {multipart: true} do |f|%>
+        <div class="post_form_input">
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </div>
+
+<br>
+        <div class="post_form_input">
+            <%= f.label :author %>
+            <%= f.text_field :author ,:value =>current_user.email,:readonly => true%>
+        </div>
+<br>
+        <div >
+            <%= f.label :body %>
+            <%= f.text_area :body ,rows: 40 , class: 'post_form_textarea'%>
+        </div>
+<br>
+        <div class="form-group">
+            <%= f.label 'img' %>
+            <%= f.file_field :image %>
+        </div>
+
+<br>
+
+    <div clas="container">
+        <div class= 'btn btn-dark'>
+            <%= link_to 'Back', :back %>
+        </div>
+
+        <div class= 'btn btn-secondary'>
+            <%= f.submit 'Post' ,class: 'mybutton'%>
+        </div>
+        
+
+    </div>
+        
+        
+        
+        <br>
+        
+    <% end %>
+</div>

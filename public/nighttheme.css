@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,700&display=swap');
+
+
+
+h2{
+    text-align: center;
+    font-family: 'Asap', sans-serif;
+}
+a{
+   color: rgb(214, 214, 214); 
+}
+
+#background{
+    position: fixed;
+    background-image: url("/images/guitar_back_64.jpg") ;
+    background-size: 100% ;
+    width: 100%;
+    height: 100%;
+    top:0;
+    margin-top: 10em;
+}
+body{
+    font-size: 75%;
+}
+
+.top_bar{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 99;
+}
+
+
+#main_head{
+    display: unset;
+    width: max-content;
+    margin: 0%;
+}
+
+.intro {
+    position: relative;
+    background-image: url("/images/head6.jpg");
+    background-size: 100%;
+    align-self: center;
+    text-align: center;
+    font-family: 'Asap', sans-serif;
+    text-shadow: 0.08em 0.08em rgb(109, 104, 104);
+    font-size: 3em;
+    color: rgb(214, 214, 214);
+  
+  }
+.navigation{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(20, 20, 20); 
+
+    text-align: center;
+    font-family: 'Asap', sans-serif;
+    font-size: 1em;
+    color: rgb(214, 214, 214);  
+    
+}
+
+
+.main{
+    /*display: flex;
+    flex-direction: column;*/
+    margin-top: 0;
+    height: 100%;
+    padding: 1%;
+    font-size: 1.5em;
+    color: rgb(214, 214, 214);
+    background-color: rgba(39, 39, 39, 0.589);
+    padding-top: 0;
+
+}
+
+.space{
+    background-color: rgba(0, 128, 128, 0);
+    width: 100%;
+    height: 8em
+    
+}
+#contacts{
+    text-align: center;
+    font-family: 'Asap', sans-serif;
+    font-size: 1em;   
+    background-color: rgba(54, 53, 53, 0.301);
+    border-radius: 10%;
+    padding: 1em; 
+
+}
+#footer{
+   
+   position: absolute;
+   bottom: 0px;
+   font-size: 0.9em;
+   
+}
+
+

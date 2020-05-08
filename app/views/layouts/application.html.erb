@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GTRDN</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link id="stylelink" rel="stylesheet" href="/nighttheme.css">
+    <link rel="icon" href="/images/LOGO.png" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+  </head>
+ 
+
+  <body>
+        <div id="background">   </div>
+        
+        <div class="top_bar">
+            <div id="intro" class="intro">
+                <header style="text-align: center;">
+                    <h1 id="main_head" class="display-3" ><%= link_to "Guitarist's den", root_path%></h1>
+                </header>
+            </div>
+            <div id="navigation" class="navigation"  >
+                
+                <nav class="container-fluid">
+<div class="row">
+<div class="col-4"></div>
+    <div class="col-4 justify-content-center">
+                        <div class="navitem " >
+                             <h6><%= link_to 'All post', posts_path, class:'nav-link', style:"padding-left:0;padding-right:0;"%></h6>
+                        </div>
+                        <div class="navitem "><h6>|</h6></div> 
+                        
+                        <div class="navitem " >
+                              <h6><%= link_to 'New post', new_post_path , class:'nav-link',style:"padding-left:0;padding-right:0;"%></h6>
+                        </div>
+
+    </div>
+            <div class="col-4 justify-content-end">
+                    
+                    <% if user_signed_in? %>
+                    <div class="navitem" >
+                        <h6><%= link_to 'Sign out', destroy_user_session_path, method: :delete , class: "nav-link"%></h6>
+                    </div>
+                    <% else %>
+                    <div class="navitem" >
+                        <h6><%= link_to 'Sign in', new_user_session_path , class: "btn btn-secondary btn-sm"%></h6>
+                    </div>
+                    <div class="navitem" >
+                        <h6><%= link_to 'Sign up', new_user_registration_path, class: "btn btn-dark btn-sm" %></h6>
+                    </div>
+                    <%end%>
+
+                    <div class="navitem">
+                    <h6 class="nav-link" style="padding-left:0;">Dark theme</h6>
+                    </div>
+                    <div id="theme_changer" class="navitem" style="padding:0">  
+                        <input type="checkbox" checked data-toggle="toggle" data-size="xs" data-onstyle="dark">
+                    </div>
+            </div>
+                    <script>
+                        var theme=1;
+                        var link = document.getElementById('stylelink');
+                        
+                        document.getElementById('theme_changer').addEventListener('click',()=>ChangeTheme());
+                        function ChangeTheme(){ 
+                            if(theme==2){
+                                link.setAttribute('href','/nighttheme.css');
+                                theme=1;
+                            }else
+                            if(theme==1){
+                                link.setAttribute("href", '/daytheme.css');
+                                theme=2;  
+                            }
+                        }
+                        </script>
+    </div> 
+                </nav>
+
+                
+            </div>
+        </div>
+        
+
+        <div id="base" class="row container-fluid base" >
+      
+            <div class="col-2">
+                
+                <div id="contacts" class="float_panel">
+                    <p>Contacts</p>
+                    <img id="sun2" src="/images/LOGOonlySunlights.png"  style="width:15em; height:15em;" title="13?" style="cursor: help;" onclick="SunClick()">
+                    <img id="sun" src="/images/LOGOonlySUN.png" style="width:15em; height:15em;" title="13?" style="cursor: help;">
+                    <script>
+
+                    let anim=20;
+                    function SunClick(){
+                        if(anim>1){
+                            --anim;
+                        }else{
+                            if(anim>0.2){
+                                anim-=0.1;
+                            }else
+                            if(anim>0.02){
+                                anim-=0.01;
+                            }else anim=20;
+                        }
+                        const sunlight=document.getElementById('sun2');
+                        sunlight.style="animation:spin " + anim + "s linear infinite;";
+                    }
+                    </script>
+                    <div>
+                        Boichuk Ivan
+                    </div>
+                    <div>
+                        
+                            <img class="inst" src="/images/inst2.png" width="20" height="20" alt="inst">
+                        
+                        <a id="clickit" class="inst" href="https://www.instagram.com/lvasuk/" target="_blank"  style="color: rgb(214, 214, 214);">@lvasuk</a>
+                    </div>
+                </div>
+                <br>
+                
+               
+            </div>
+                                     
+            <!-- <div id="main" class="main"> -->  
+             <div class="col-8 main">
+             <div class="container-fluid d-flex justify-content-center">
+             <h1>Drugs</h1>
+             </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <% flash.each do |name,message|%>
+                            <div class="alert <%= bootstrap_class_for(name)%>">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= message%>
+                            </div>
+                        <%end%>
+
+                    </div>
+                </div>
+
+                <%= yield %>
+
+                <div id="Feedback" class="Feedback">
+                <br>
+                    <div id="footer">
+                        <footer>IVASUK | 2020</footer>
+                    </div>
+                </div> 
+                
+            </?>
+        
+            </div>
+           
+            <div class="col-2">
+    </div>
+     
+
+   
+  </body>
+</html>

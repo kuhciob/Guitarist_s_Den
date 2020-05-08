@@ -1,0 +1,15 @@
+<h1><%= @post.title%></h1>
+<small>
+    <%= @post.author%> | <time><%= @post.created_at.to_date.strftime("%d, %B, %Y")%></time>
+</small>
+<br>
+
+    <%= image_tag @post.image.url(:medium), class: "img-show" if @post.image? %>
+<pre><%= @post.body%> </pre>
+
+<% if @post.author == current_user.email %>
+    <%= link_to 'Edit', edit_post_path(@post)%>
+    |
+    <%= link_to 'Delete', post_path(@post), method: :delete , data:{confirm: 'are you Shure?'}%>
+<%end%>
+<%=render 'disqus'%>
