@@ -6,10 +6,11 @@
 
     <%= image_tag @post.image.url(:medium), class: "img-show" if @post.image? %>
 <pre><%= @post.body%> </pre>
-
+<% if current_user%>
 <% if @post.author == current_user.email %>
     <%= link_to 'Edit', edit_post_path(@post)%>
     |
     <%= link_to 'Delete', post_path(@post), method: :delete , data:{confirm: 'are you Shure?'}%>
+<%end%>
 <%end%>
 <%=render 'disqus'%>
