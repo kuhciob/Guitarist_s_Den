@@ -12,9 +12,11 @@
                         <br>
                         <div class="d-flex flex-row-reverse">
                             <button class="btn btn-danger "><%= link_to 'Delete', post_path(post), method: :delete , data:{confirm: 'are you Shure?'}%></button>
+                            <button class="btn btn-warning "><%= link_to 'Edit', edit_post_path(post)%></button>
                         </div>
                         <%end%>
                    <%end%>
+                   <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-secondary'}.join(' ')%>
                 </small>
             </th>
         </table>

@@ -131,36 +131,37 @@
             </div>
                                      
             <!-- <div id="main" class="main"> -->  
-             <div class="col-8 main">
-             <div class="container-fluid d-flex justify-content-center">
-             </div>
+            <div class="col-8 main">
                 <div class="row">
-                    <div class="col-md-12">
-                        <% flash.each do |name,message|%>
-                            <div class="alert <%= bootstrap_class_for(name)%>">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <%= message%>
-                            </div>
-                        <%end%>
-
-                    </div>
+                        <div class="col-md-12">
+                            <% flash.each do |name,message|%>
+                                <div class="alert <%= bootstrap_class_for(name)%>">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <%= message%>
+                                </div>
+                            <%end%>
+                        </div>
                 </div>
 
-                <%= yield %>
+                    <%= yield %>
 
-                <div id="Feedback" class="Feedback">
-                <br>
+                <div class="row">
                     <div id="footer">
+                    <br>
                         <footer>IVASUK | 2020</footer>
                     </div>
-                </div> 
-                
-            </?>
-        
+                </div>
+                    
+            
             </div>
            
             <div class="col-2">
-    </div>
+                <% tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5 }) do |tag,css_class| %>
+                   <%= link_to tag.name, tag_path(tag.name), class: 'badge badge-secondary '+css_class%>
+                <%end%> 
+            </div>
+
+        </div>
      
 
    

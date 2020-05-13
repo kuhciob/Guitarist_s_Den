@@ -32,22 +32,22 @@
             <%= f.label 'img' %>
             <%= f.file_field :image %>
         </div>
+<br>
+        <div class="form-group">
+            <%= f.label :all_tags %>
+            <%= f.text_field :all_tags %>
+        </div>
 
 <br>
 
     <div clas="container">
-        <div class= 'btn btn-dark'>
-            <%= link_to 'Back', :back %>
-        </div>
+        <div >
+            <%= link_to 'Back', :back ,class: 'btn btn-dark'%>
+            <%= f.submit 'Post' ,class: 'btn btn-secondary'%>
 
-        <div class= 'btn btn-secondary'>
-            <%= f.submit 'Post' ,class: 'mybutton'%>
-        </div>
-        
-
+        </div>     
     </div>
-        
-        
+      
         
         <br>
         

@@ -140,3 +140,25 @@ input:hover{
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.tag1{
+    font-size: 1.0em;
+    margin:2%;
+}
+.tag{
+    font-size: 1.2em;
+    margin:2%;
+}
+  
+.tag3{
+    font-size: 1.4em;
+    margin:2%;
+}
+.tag4{
+    font-size: 1.6em;
+    margin:2%;
+}
+.tag5{
+    font-size: 1.8em;
+    margin:2%;
+}
