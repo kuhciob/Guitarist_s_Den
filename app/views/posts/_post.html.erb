@@ -1,12 +1,15 @@
-        
-    <div class="songtable">
+    <div class=" songtable">
         <table class="d-flex" >
             <tr style="width: 100%;display:block" >
             <th><%= image_tag post.image.url(:thumb), class: "img-show",style:'border-radius:100%' if post.image? %></th>
             <th style="width: 100%;"><h2 style="vertical-align: middle;margin-left: 10%;width: max-content;">
                 <%= link_to post.title, post_path(post)%></h2>
                 <small style="vertical-align: middle;margin-left: 10%;width: max-content;">
-                   <%= post.author%> | <time><%= post.created_at.to_date.strftime("%d, %B, %Y")%></time>
+                    <%= post.author%> | <time><%= post.created_at.to_date.strftime("%d, %B, %Y")%></time>
+                    <br>
+                    <div style="vertical-align: middle;margin-left: 10%;width: max-content;" class="section">
+                        <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-secondary'}.join(' ') %>
+                    </div>
                     <% if current_user%>
                         <%if current_user.admin == true %>
                         <br>
@@ -16,11 +19,8 @@
                         </div>
                         <%end%>
                    <%end%>
-                   <%= raw post.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'badge badge-secondary'}.join(' ')%>
+                   
                 </small>
             </th>
         </table>
-        
-        
-       
     </div>

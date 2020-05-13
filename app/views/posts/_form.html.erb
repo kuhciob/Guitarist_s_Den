@@ -11,31 +11,31 @@
 <% end %>
 <div class="post_form"> 
 
-    <%= form_for @post, html: {multipart: true} do |f|%>
+    <%= form_for @post, class: "was-validated", html: {multipart: true} do |f|%>
         <div class="post_form_input">
             <%= f.label :title %>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, class:"form-control w-75" ,:required => true%>
         </div>
 
 <br>
         <div class="post_form_input">
             <%= f.label :author %>
-            <%= f.text_field :author ,:value =>current_user.email,:readonly => true%>
+            <%= f.text_field :author ,:value =>current_user.email,:readonly => true, class:"form-control w-75"%>
         </div>
 <br>
         <div >
             <%= f.label :body %>
-            <%= f.text_area :body ,rows: 40 , class: 'post_form_textarea'%>
+            <%= f.text_area :body ,rows: 40 , class: 'post_form_textarea',:required => true%>
         </div>
 <br>
         <div class="form-group">
             <%= f.label 'img' %>
-            <%= f.file_field :image %>
+            <%= f.file_field :image ,:required => true%>
         </div>
 <br>
         <div class="form-group">
             <%= f.label :all_tags %>
-            <%= f.text_field :all_tags %>
+            <%= f.text_field :all_tags, class:"form-control w-100" ,:required => true %>
         </div>
 
 <br>

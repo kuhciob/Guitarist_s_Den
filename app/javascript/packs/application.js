@@ -17,5 +17,3 @@ require("channels");
 // const imagePath = (name) => images(name, true)
 
 
-require("jquery").start()
-require("jquery_ujs").start()
